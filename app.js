@@ -3,11 +3,13 @@ const graphqlHTTP = require("express-graphql");
 const schema = require("./schema/schema");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
 const app = express();
+const PORT = process.env.PORT || 4000;
+const path = require("path");
 
 // allow cross-origin requests
 app.use(cors());
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // connect to mlab database
 // make sure to replace my db string & creds with your own
@@ -25,6 +27,6 @@ app.use(
   })
 );
 
-app.listen(4000, () => {
+app.listen(PORT, () => {
   console.log("now listening for requests on port 4000");
 });

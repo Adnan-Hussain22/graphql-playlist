@@ -4,9 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "client": "cd client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "client:install": "cd client && yarn install"
+    "dev": "concurrent \"npm run client\" \"npm run dev\" ",
+    "client:install": "cd client && npm i",
+    "client:build": "cd client && npm run build"
   },
   "author": "",
   "license": "ISC",
