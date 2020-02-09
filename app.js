@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 // connect to mlab database
 // make sure to replace my db string & creds with your own
-mongoose.connect("mongodb://localhost:27017/graphql-ninja");
+mongoose.connect("mongodb://127.0.0.1:27017/graphql-ninja");
 mongoose.connection.once("open", () => {
   console.log("conneted to database");
 });
@@ -22,8 +22,8 @@ mongoose.connection.once("open", () => {
 app.use(
   "/graphql",
   graphqlHTTP({
-    schema,
-    graphiql: true
+    schema
+    // graphiql: true
   })
 );
 
